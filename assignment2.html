@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image slider</title>
+   
+</head><style>
+    *{
+    margin: 0px;
+    padding: 0px;
+}
+.sliders{
+    height:100vh;
+    
+    background: black;
+    align-items: center;
+    padding-top:12% ;
+    padding-left: 5%;
+}
+.slide{margin-left: 15%;
+height: 60%;
+width: 60%;
+background-color: aliceblue;
+
+}
+#img{
+    height: 100%;
+    width: 100%;
+}
+#next-btn{
+    margin-left: 60%;
+    height: 2rem;
+    width: 4rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    margin-top: 5%;
+    border: none;
+    
+}
+#next-btn:hover{
+    background-color: aquamarine;
+ border: 2px white solid;
+ 
+ transform: scale(1.2);
+}
+#prev-btn{
+    height: 2rem;
+    width: 4rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    margin-top: 5%;
+    border: none;
+    margin-left: 11%;
+    
+}
+
+</style>
+<body>
+    <div class="sliders"> 
+        <div class="slide">
+        <img id="img" src="challenge.webp" alt="image slides"></div>
+        <Button id="prev-btn" onclick="previmage()">Prev</Button>
+        <button id="next-btn" onclick="nextimage()">next</button>
+    </div>
+    <script>let images= ["challenge.webp","checked.png","coding challenge.png"];
+let index=0;
+function show(){
+    document.getElementById("img").src=images[index];
+}
+function nextimage(){
+  let temp= document.getElementById("next-btn").style.backgroundColor;
+  document.getElementById("next-btn").style.backgroundColor="green";
+  setTimeout(()=>{
+   document.getElementById("next-btn").style.backgroundColor="white"; },200);
+    
+
+    index=(index + 1)%images.length;
+    show();
+}
+function previmage(){
+    index=(index - 1 + images.length) % images.length;
+    show();
+}</script>
+</body>
+</html>
